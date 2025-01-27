@@ -4,30 +4,43 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Podaj pierwszą liczbę dwucyfrową: ");
-        String first = sc.nextLine();
+        boolean stop = false;
 
-        System.out.println("Podaj drugą liczbę dwucyfrową: ");
-        String second = sc.nextLine();
+        do {
+            System.out.println("Podaj pierwszą liczbę dwucyfrową: ");
+            String first = sc.nextLine();
 
-        boolean valid = false;
+            System.out.println();
 
-        for (int i = 0; i < first.length(); i++) {
-            if (valid) {
-                break;
-            }
+            System.out.println("Podaj drugą liczbę dwucyfrową: ");
+            String second = sc.nextLine();
 
-            for (int j = 0; j < second.length(); j++) {
+            boolean valid = false;
+
+            for (int i = 0; i < first.length(); i++) {
                 if (valid) {
                     break;
                 }
 
-                if (first.charAt(i) == second.charAt(j)) {
-                    valid = true;
+                for (int j = 0; j < second.length(); j++) {
+                    if (valid) {
+                        break;
+                    }
+
+                    if (first.charAt(i) == second.charAt(j)) {
+                        valid = true;
+                    }
                 }
             }
-        }
 
-        System.out.println(valid);
+            System.out.println(valid);
+
+            System.out.println();
+
+            System.out.println("Chcesz zakończyć? (true | false): ");
+            stop = sc.nextBoolean();
+
+            System.out.println();
+        } while (!stop);
     }
 }
